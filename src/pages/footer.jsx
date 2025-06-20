@@ -3,11 +3,21 @@ import { motion } from 'framer-motion';
 import '../assets/css/footer.css';
 import companyLogo from '../assets/image/doctor.png';
 import { FaFacebook, FaGithub, FaLinkedin, FaGlobe, FaChevronRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation
 
 const Footer = () => {
-  const [activeLink, setActiveLink] = useState(null);
   const [hoveredLink, setHoveredLink] = useState(null);
+  const location = useLocation(); // Get current location object
+
+  // Helper function to determine if a link is active based on current path
+  const isActiveLink = (path, index) => {
+    // Special handling for the home route to prevent it from matching all paths
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    // For other routes, check if the current path starts with the link's path
+    return location.pathname.startsWith(path);
+  };
 
   const socialLinks = [
     {
@@ -118,148 +128,159 @@ const Footer = () => {
             <span className="link-icon">🔗</span> Quick Links
           </h4>
           <ul>
+            {/* Home Link */}
             <motion.li
               onMouseEnter={() => setHoveredLink(0)}
               onMouseLeave={() => setHoveredLink(null)}
-              onClick={() => setActiveLink(0)}
+              // Removed onClick={() => setActiveLink(0)} as active state is derived from URL
               initial={false}
-              animate={{
-                backgroundColor: activeLink === 0 ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
-              }}
             >
-              <motion.div
-                className="link-content"
-                whileHover={{ x: 10 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+              <Link // Use Link from react-router-dom
+                to="/"
+                className={`link-content ${isActiveLink('/', 0) ? 'active' : ''}`}
               >
-                <span className="link-icon">🏠</span>
-                <a href="/">Home</a>
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <span className="link-icon">🏠</span>
+                  <span>Home</span> {/* Use span for text within Link */}
+                </motion.div>
                 <motion.span
                   className="active-indicator"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{
-                    opacity: activeLink === 0 || hoveredLink === 0 ? 1 : 0,
-                    x: activeLink === 0 || hoveredLink === 0 ? 0 : -10
+                    opacity: isActiveLink('/', 0) || hoveredLink === 0 ? 1 : 0,
+                    x: isActiveLink('/', 0) || hoveredLink === 0 ? 0 : -10
                   }}
                 >
                   <FaChevronRight />
                 </motion.span>
-              </motion.div>
-              {activeLink === 0 && (
+              </Link>
+              {isActiveLink('/', 0) && ( // Conditionally render active highlight
                 <motion.div
                   className="active-highlight"
-                  layoutId="activeHighlight"
-                  initial={false}
+                  layoutId="footerActiveHighlight" // Unique layoutId
+                  initial={{ width: 0 }}
+                  animate={{ width: '100%' }}
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
               )}
             </motion.li>
 
+            {/* Booking Link */}
             <motion.li
               onMouseEnter={() => setHoveredLink(1)}
               onMouseLeave={() => setHoveredLink(null)}
-              onClick={() => setActiveLink(1)}
+              // Removed onClick={() => setActiveLink(1)}
               initial={false}
-              animate={{
-                backgroundColor: activeLink === 1 ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
-              }}
             >
-              <motion.div
-                className="link-content"
-                whileHover={{ x: 10 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+              <Link // Use Link
+                to="/booking"
+                className={`link-content ${isActiveLink('/booking', 1) ? 'active' : ''}`}
               >
-                <span className="link-icon">📅</span>
-                <a href="/booking">Booking</a>
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <span className="link-icon">📅</span>
+                  <span>Booking</span>
+                </motion.div>
                 <motion.span
                   className="active-indicator"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{
-                    opacity: activeLink === 1 || hoveredLink === 1 ? 1 : 0,
-                    x: activeLink === 1 || hoveredLink === 1 ? 0 : -10
+                    opacity: isActiveLink('/booking', 1) || hoveredLink === 1 ? 1 : 0,
+                    x: isActiveLink('/booking', 1) || hoveredLink === 1 ? 0 : -10
                   }}
                 >
                   <FaChevronRight />
                 </motion.span>
-              </motion.div>
-              {activeLink === 1 && (
+              </Link>
+              {isActiveLink('/booking', 1) && (
                 <motion.div
                   className="active-highlight"
-                  layoutId="activeHighlight"
-                  initial={false}
+                  layoutId="footerActiveHighlight"
+                  initial={{ width: 0 }}
+                  animate={{ width: '100%' }}
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
               )}
             </motion.li>
 
+            {/* Blog Link */}
             <motion.li
               onMouseEnter={() => setHoveredLink(2)}
               onMouseLeave={() => setHoveredLink(null)}
-              onClick={() => setActiveLink(2)}
+              // Removed onClick={() => setActiveLink(2)}
               initial={false}
-              animate={{
-                backgroundColor: activeLink === 2 ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
-              }}
             >
-              <motion.div
-                className="link-content"
-                whileHover={{ x: 10 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+              <Link // Use Link
+                to="/blog"
+                className={`link-content ${isActiveLink('/blog', 2) ? 'active' : ''}`}
               >
-                <span className="link-icon">📚</span>
-                <a href="/blog">Blog</a>
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <span className="link-icon">📚</span>
+                  <span>Blog</span>
+                </motion.div>
                 <motion.span
                   className="active-indicator"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{
-                    opacity: activeLink === 2 || hoveredLink === 2 ? 1 : 0,
-                    x: activeLink === 2 || hoveredLink === 2 ? 0 : -10
+                    opacity: isActiveLink('/blog', 2) || hoveredLink === 2 ? 1 : 0,
+                    x: isActiveLink('/blog', 2) || hoveredLink === 2 ? 0 : -10
                   }}
                 >
                   <FaChevronRight />
                 </motion.span>
-              </motion.div>
-              {activeLink === 2 && (
+              </Link>
+              {isActiveLink('/blog', 2) && (
                 <motion.div
                   className="active-highlight"
-                  layoutId="activeHighlight"
-                  initial={false}
+                  layoutId="footerActiveHighlight"
+                  initial={{ width: 0 }}
+                  animate={{ width: '100%' }}
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
               )}
             </motion.li>
 
+            {/* Contact Link */}
             <motion.li
               onMouseEnter={() => setHoveredLink(3)}
               onMouseLeave={() => setHoveredLink(null)}
-              onClick={() => setActiveLink(3)}
+              // Removed onClick={() => setActiveLink(3)}
               initial={false}
-              animate={{
-                backgroundColor: activeLink === 3 ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
-              }}
             >
-              <motion.div
-                className="link-content"
-                whileHover={{ x: 10 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+              <Link // Use Link
+                to="/contact"
+                className={`link-content ${isActiveLink('/contact', 3) ? 'active' : ''}`}
               >
-                <span className="link-icon">📞</span>
-                <a href="/contact">Contact</a>
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <span className="link-icon">📞</span>
+                  <span>Contact</span>
+                </motion.div>
                 <motion.span
                   className="active-indicator"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{
-                    opacity: activeLink === 3 || hoveredLink === 3 ? 1 : 0,
-                    x: activeLink === 3 || hoveredLink === 3 ? 0 : -10
+                    opacity: isActiveLink('/contact', 3) || hoveredLink === 3 ? 1 : 0,
+                    x: isActiveLink('/contact', 3) || hoveredLink === 3 ? 0 : -10
                   }}
                 >
                   <FaChevronRight />
                 </motion.span>
-              </motion.div>
-              {activeLink === 3 && (
+              </Link>
+              {isActiveLink('/contact', 3) && (
                 <motion.div
                   className="active-highlight"
-                  layoutId="activeHighlight"
+                  layoutId="footerActiveHighlight"
                   initial={false}
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
