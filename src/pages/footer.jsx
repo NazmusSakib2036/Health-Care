@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../assets/css/footer.css';
 import companyLogo from '../assets/image/doctor.png';
-// import footerBg from './footer-bg.jpg'; // Add your background image
-// FIX: Added FaChevronRight to the import list from react-icons/fa
 import { FaFacebook, FaGithub, FaLinkedin, FaGlobe, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -40,13 +38,6 @@ const Footer = () => {
       target: '_blank',
       rel: 'noopener noreferrer'
     },
-  ];
-
-  const footerLinks = [
-    { title: 'Home', url: '/', icon: '🏠' },
-    { title: 'Booking', url: '/booking', icon: '📅' },
-    { title: 'Blog', url: '/blog', icon: '📚' },
-    { title: 'Contact', url: '/contact', icon: '📞' }
   ];
 
   const contactInfo = [
@@ -127,45 +118,153 @@ const Footer = () => {
             <span className="link-icon">🔗</span> Quick Links
           </h4>
           <ul>
-            {footerLinks.map((link, index) => (
-              <motion.li
-                key={index}
-                onMouseEnter={() => setHoveredLink(index)}
-                onMouseLeave={() => setHoveredLink(null)}
-                onClick={() => setActiveLink(index)}
-                initial={false}
-                animate={{
-                  backgroundColor: activeLink === index ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
-                }}
+            <motion.li
+              onMouseEnter={() => setHoveredLink(0)}
+              onMouseLeave={() => setHoveredLink(null)}
+              onClick={() => setActiveLink(0)}
+              initial={false}
+              animate={{
+                backgroundColor: activeLink === 0 ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
+              }}
+            >
+              <motion.div
+                className="link-content"
+                whileHover={{ x: 10 }}
+                transition={{ type: 'spring', stiffness: 300 }}
               >
-                <motion.div
-                  className="link-content"
-                  whileHover={{ x: 10 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
+                <span className="link-icon">🏠</span>
+                <a href="/">Home</a>
+                <motion.span
+                  className="active-indicator"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{
+                    opacity: activeLink === 0 || hoveredLink === 0 ? 1 : 0,
+                    x: activeLink === 0 || hoveredLink === 0 ? 0 : -10
+                  }}
                 >
-                  <span className="link-icon">{link.icon}</span>
-                  <a href={link.url}>{link.title}</a>
-                  <motion.span
-                    className="active-indicator"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{
-                      opacity: activeLink === index || hoveredLink === index ? 1 : 0,
-                      x: activeLink === index || hoveredLink === index ? 0 : -10
-                    }}
-                  >
-                    <FaChevronRight /> {/* This is where the FaChevronRight was used */}
-                  </motion.span>
-                </motion.div>
-                {activeLink === index && (
-                  <motion.div
-                    className="active-highlight"
-                    layoutId="activeHighlight"
-                    initial={false}
-                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </motion.li>
-            ))}
+                  <FaChevronRight />
+                </motion.span>
+              </motion.div>
+              {activeLink === 0 && (
+                <motion.div
+                  className="active-highlight"
+                  layoutId="activeHighlight"
+                  initial={false}
+                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                />
+              )}
+            </motion.li>
+
+            <motion.li
+              onMouseEnter={() => setHoveredLink(1)}
+              onMouseLeave={() => setHoveredLink(null)}
+              onClick={() => setActiveLink(1)}
+              initial={false}
+              animate={{
+                backgroundColor: activeLink === 1 ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
+              }}
+            >
+              <motion.div
+                className="link-content"
+                whileHover={{ x: 10 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <span className="link-icon">📅</span>
+                <a href="/booking">Booking</a>
+                <motion.span
+                  className="active-indicator"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{
+                    opacity: activeLink === 1 || hoveredLink === 1 ? 1 : 0,
+                    x: activeLink === 1 || hoveredLink === 1 ? 0 : -10
+                  }}
+                >
+                  <FaChevronRight />
+                </motion.span>
+              </motion.div>
+              {activeLink === 1 && (
+                <motion.div
+                  className="active-highlight"
+                  layoutId="activeHighlight"
+                  initial={false}
+                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                />
+              )}
+            </motion.li>
+
+            <motion.li
+              onMouseEnter={() => setHoveredLink(2)}
+              onMouseLeave={() => setHoveredLink(null)}
+              onClick={() => setActiveLink(2)}
+              initial={false}
+              animate={{
+                backgroundColor: activeLink === 2 ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
+              }}
+            >
+              <motion.div
+                className="link-content"
+                whileHover={{ x: 10 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <span className="link-icon">📚</span>
+                <a href="/blog">Blog</a>
+                <motion.span
+                  className="active-indicator"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{
+                    opacity: activeLink === 2 || hoveredLink === 2 ? 1 : 0,
+                    x: activeLink === 2 || hoveredLink === 2 ? 0 : -10
+                  }}
+                >
+                  <FaChevronRight />
+                </motion.span>
+              </motion.div>
+              {activeLink === 2 && (
+                <motion.div
+                  className="active-highlight"
+                  layoutId="activeHighlight"
+                  initial={false}
+                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                />
+              )}
+            </motion.li>
+
+            <motion.li
+              onMouseEnter={() => setHoveredLink(3)}
+              onMouseLeave={() => setHoveredLink(null)}
+              onClick={() => setActiveLink(3)}
+              initial={false}
+              animate={{
+                backgroundColor: activeLink === 3 ? 'rgba(58, 134, 255, 0.2)' : 'transparent'
+              }}
+            >
+              <motion.div
+                className="link-content"
+                whileHover={{ x: 10 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <span className="link-icon">📞</span>
+                <a href="/contact">Contact</a>
+                <motion.span
+                  className="active-indicator"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{
+                    opacity: activeLink === 3 || hoveredLink === 3 ? 1 : 0,
+                    x: activeLink === 3 || hoveredLink === 3 ? 0 : -10
+                  }}
+                >
+                  <FaChevronRight />
+                </motion.span>
+              </motion.div>
+              {activeLink === 3 && (
+                <motion.div
+                  className="active-highlight"
+                  layoutId="activeHighlight"
+                  initial={false}
+                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                />
+              )}
+            </motion.li>
           </ul>
         </motion.div>
 
