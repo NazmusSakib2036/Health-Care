@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Patrick+Hand&display=swap');
+
+.magic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a0033, #33001a);
+    overflow: hidden;
+    perspective: 1000px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin-top: 30px;
+}
+
+.magic-scene {
+    position: relative;
+    text-align: center;
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+    padding: 2rem;
+}
+
+.magic-404 {
+    font-size: 15rem;
+    font-weight: 900;
+    text-shadow:
+        0 0 10px #ff00ff,
+        0 0 20px #00ffff,
+        0 0 30px #ffff00;
+    margin-bottom: -2rem;
+    transform: rotateX(20deg);
+    animation: glow 2s ease-in-out infinite alternate, shake 0.5s ease-in-out infinite alternate;
+}
+
+.magic-text {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px #ffffff;
+    transform: rotateY(-5deg);
+    animation: bounce 2s ease infinite;
+}
+
+.magic-subtext {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.8rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    transform: rotateY(5deg);
+    animation: fadeInOut 3s ease infinite;
+}
+
+.magic-button {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    transition: all 0.3s;
+    transform: translateZ(20px);
+}
+
+.magic-button:hover {
+    transform: translateZ(30px) scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+    animation: buttonPulse 0.5s ease infinite alternate;
+}
+
+.magic-button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.magic-button-sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.magic-button-sparkle {
+    position: absolute;
+    background: white;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkleFly 1.5s ease-in-out infinite;
+}
+
+/* Magical Elements */
+.magic-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Crystals */
+.magic-crystal {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    clip-path: polygon(50% 0%,
+            80% 10%,
+            100% 35%,
+            90% 60%,
+            75% 80%,
+            50% 100%,
+            25% 80%,
+            10% 60%,
+            0% 35%,
+            20% 10%);
+    filter: blur(1px);
+}
+
+.magic-crystal-1 {
+    width: 50px;
+    height: 50px;
+    top: 20%;
+    left: 10%;
+    animation: floatCrystal 7s infinite ease-in-out, spin 10s infinite linear, colorChange 5s infinite alternate;
+}
+
+.magic-crystal-2 {
+    width: 30px;
+    height: 30px;
+    top: 60%;
+    left: 80%;
+    animation: floatCrystal 9s infinite ease-in-out 2s, spin 8s infinite linear reverse, colorChange 7s infinite alternate;
+}
+
+.magic-crystal-3 {
+    width: 40px;
+    height: 40px;
+    top: 30%;
+    left: 70%;
+    animation: floatCrystal 8s infinite ease-in-out 1s, spin 12s infinite linear, colorChange 4s infinite alternate;
+}
+
+/* Sparkles */
+.magic-sparkle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: sparkle 2s infinite;
+}
+
+.magic-sparkle-1 {
+    width: 5px;
+    height: 5px;
+    top: 25%;
+    left: 25%;
+    animation-delay: 0.5s;
+}
+
+.magic-sparkle-2 {
+    width: 3px;
+    height: 3px;
+    top: 65%;
+    left: 65%;
+    animation-delay: 1s;
+}
+
+.magic-sparkle-3 {
+    width: 4px;
+    height: 4px;
+    top: 45%;
+    left: 45%;
+    animation-delay: 1.5s;
+}
+
+/* Wand */
+.magic-wand {
+    position: absolute;
+    width: 100px;
+    height: 10px;
+    background: linear-gradient(90deg, #d4af37, #f9d423);
+    top: 40%;
+    left: 20%;
+    transform: rotate(45deg);
+    animation: wandFloat 8s infinite ease-in-out;
+}
+
+.magic-wand::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ff00ff, transparent 70%);
+    top: -5px;
+    left: -10px;
+    border-radius: 50%;
+    animation: wandGlow 2s infinite alternate;
+}
+
+/* Hat */
+.magic-hat {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(45deg, #000, #333);
+    top: 20%;
+    left: 70%;
+    border-radius: 50% 50% 0 0;
+    animation: hatFloat 7s infinite ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.magic-hat::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    background: linear-gradient(45deg, #111, #222);
+    top: 35px;
+    left: -20px;
+    border-radius: 50%;
+}
+
+/* New Magical Elements */
+.magic-bunny {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    top: 70%;
+    left: 15%;
+    animation: bunnyHop 5s infinite ease-in-out;
+}
+
+.magic-bunny::before,
+.magic-bunny::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.magic-bunny::before {
+    width: 15px;
+    height: 25px;
+    top: -10px;
+    left: 5px;
+    transform: rotate(-30deg);
+}
+
+.magic-bunny::after {
+    width: 15px;
+    height: 25px;
+    top: -10px;
+    left: 40px;
+    transform: rotate(30deg);
+}
+
+.magic-cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    filter: blur(10px);
+    animation: cloudFloat 15s linear infinite;
+}
+
+.magic-cloud-1 {
+    width: 100px;
+    height: 60px;
+    top: 10%;
+    left: -10%;
+    animation-delay: 0s;
+}
+
+.magic-cloud-2 {
+    width: 150px;
+    height: 90px;
+    top: 15%;
+    right: -15%;
+    animation-delay: 5s;
+}
+
+.magic-message-bubble {
+    position: absolute;
+    background: white;
+    color: #ff00ff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: bubblePop 4s infinite ease-in-out;
+    white-space: nowrap;
+}
+
+.magic-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.magic-star {
+    position: absolute;
+    background: white;
+    clip-path: polygon(50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%);
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+/* Create random star positions */
+.magic-star:nth-child(1) {
+    width: 10px;
+    height: 10px;
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.magic-star:nth-child(2) {
+    width: 8px;
+    height: 8px;
+    top: 25%;
+    left: 80%;
+    animation-delay: 0.5s;
+}
+
+.magic-star:nth-child(3) {
+    width: 12px;
+    height: 12px;
+    top: 60%;
+    left: 10%;
+    animation-delay: 1s;
+}
+
+/* Add more stars as needed... */
+
+/* Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotateY(5deg);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
+    }
+
+    to {
+        text-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff, 0 0 45px #ffff00;
+    }
+}
+
+@keyframes shake {
+    from {
+        transform: rotateX(20deg) translateX(-5px);
+    }
+
+    to {
+        transform: rotateX(20deg) translateX(5px);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: rotateY(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotateY(-5deg) translateY(-10px);
+    }
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes floatCrystal {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background: rgba(255, 0, 255, 0.8);
+    }
+
+    33% {
+        background: rgba(0, 255, 255, 0.8);
+    }
+
+    66% {
+        background: rgba(255, 255, 0, 0.8);
+    }
+
+    100% {
+        background: rgba(255, 0, 255, 0.8);
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes wandFloat {
+
+    0%,
+    100% {
+        transform: rotate(45deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(55deg) translateY(-15px);
+    }
+}
+
+@keyframes wandGlow {
+    from {
+        box-shadow: 0 0 5px #ff00ff;
+    }
+
+    to {
+        box-shadow: 0 0 20px #ff00ff, 0 0 30px #ffff00;
+    }
+}
+
+@keyframes hatFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateX(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotateX(10deg);
+    }
+}
+
+@keyframes bunnyHop {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes cloudFloat {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 100px));
+        opacity: 0;
+    }
+}
+
+@keyframes bubblePop {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes buttonPulse {
+    from {
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    }
+
+    to {
+        box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+    }
+}
+
+@keyframes sparkleFly {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty));
+        opacity: 0;
+    }
+}
+
+/* Set random sparkle paths */
+.magic-button-sparkle:nth-child(1) {
+    --tx: 20px;
+    --ty: -30px;
+    left: 10%;
+    top: 50%;
+}
+
+.magic-button-sparkle:nth-child(2) {
+    --tx: -15px;
+    --ty: -25px;
+    left: 30%;
+    top: 60%;
+    animation-delay: 0.2s;
+}
+
+.magic-button-sparkle:nth-child(3) {
+    --tx: 25px;
+    --ty: 20px;
+    left: 70%;
+    top: 30%;
+    animation-delay: 0.4s;
+}
+
+.magic-button-sparkle:nth-child(4) {
+    --tx: -20px;
+    --ty: 15px;
+    left: 40%;
+    top: 20%;
+    animation-delay: 0.6s;
+}
+
+.magic-button-sparkle:nth-child(5) {
+    --tx: 10px;
+    --ty: -40px;
+    left: 80%;
+    top: 70%;
+    animation-delay: 0.8s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .magic-404 {
+        font-size: 8rem;
+    }
+
+    .magic-text {
+        font-size: 2rem;
+    }
+
+    .magic-subtext {
+        font-size: 1.2rem;
+        padding: 0 20px;
+    }
+
+    .magic-crystal-1,
+    .magic-crystal-2,
+    .magic-crystal-3 {
+        display: none;
+    }
+}

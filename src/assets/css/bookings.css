@@ -1,0 +1,245 @@
+.my-bookings {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    margin-top: 70px;
+}
+
+.my-bookings h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    font-size: 2.8em;
+    font-weight: 700;
+    position: relative;
+}
+
+.my-bookings h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #007bff;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.no-bookings {
+    text-align: center;
+    font-size: 1.3em;
+    color: #7f8c8d;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.booking-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.booking-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.doctor-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.doctor-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    padding: 2px;
+}
+
+.doctor-details-text h3 {
+    margin: 0;
+    color: #34495e;
+    font-size: 1.6em;
+}
+
+.doctor-details-text p {
+    margin: 5px 0;
+    color: #7f8c8d;
+    font-size: 0.95em;
+}
+
+.hospital-name {
+    font-weight: 600;
+    color: #555;
+}
+
+.appointment-details p {
+    margin: 8px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.appointment-details strong {
+    color: #333;
+}
+
+.status-pending {
+    color: #f39c12;
+    /* Orange */
+    font-weight: bold;
+}
+
+.status-cancelled {
+    color: #e74c3c;
+    /* Red */
+    font-weight: bold;
+}
+
+.status-completed {
+    color: #27ae60;
+    /* Green */
+    font-weight: bold;
+}
+
+.booking-date {
+    font-size: 0.85em;
+    color: #95a5a6;
+    text-align: right;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.booking-actions {
+    display: flex;
+    justify-content: flex-end;
+    /* Align buttons to the right */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.cancel-btn,
+.delete-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    /* Bootstrap danger color */
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    background-color: #6c757d;
+    /* Bootstrap secondary color */
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+
+
+
+.doctors-nav-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 1rem 0 1rem 0;
+    text-decoration: none;
+    border: none;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease, border-radius 0.4s ease;
+
+    &:hover{
+        border-radius: 0 1rem 0 1rem;
+        background-color: #000bff;
+        transform: skewY(7deg);
+        cursor: pointer;
+    }
+}
+
+.doctors-nav-btnn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 1rem 0 1rem 0;
+    text-decoration: none;
+    border: none;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease, border-radius 0.4s ease;
+
+    &:hover{
+        border-radius: 0 1rem 0 1rem;
+        background-color: #000bff;
+        transform: skewY(-7deg);
+        cursor: pointer;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .my-bookings {
+        padding: 20px 15px;
+    }
+
+    .my-bookings h1 {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+
+    .booking-list {
+        grid-template-columns: 1fr;
+        /* Stack cards on smaller screens */
+    }
+
+    .booking-card {
+        padding: 20px;
+    }
+
+    .doctor-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .doctor-photo {
+        margin-bottom: 10px;
+    } }

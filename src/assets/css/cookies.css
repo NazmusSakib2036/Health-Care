@@ -1,0 +1,136 @@
+/* Base styles for the Cookies Policy page */
+.cookies-policy-page {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding-top: 80px;
+    /* Adjust based on your navbar height */
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+.cp-header {
+    background-color: #e0f7fa;
+    padding: 50px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.cp-title {
+    font-size: 3em;
+    color: #2a4365;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.cp-last-updated {
+    font-size: 1em;
+    color: #777;
+}
+
+.cp-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cp-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.section-heading {
+    font-size: 1.8em;
+    color: #3a86ff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #e0f7fa;
+    padding-bottom: 10px;
+}
+
+.section-paragraph {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.cp-list {
+    list-style-type: disc;
+    margin-left: 25px;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.cp-list li {
+    font-size: 1.05em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.cp-list li strong {
+    color: #2a4365;
+}
+
+.contact-info {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+}
+
+.contact-info a {
+    color: #3a86ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cp-title {
+        font-size: 2.2em;
+    }
+
+    .cp-header {
+        padding: 30px 15px;
+    }
+
+    .cp-content {
+        padding: 0 15px;
+    }
+
+    .cp-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .section-heading {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .section-paragraph,
+    .cp-list li,
+    .contact-info {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .cp-title {
+        font-size: 1.8em;
+    }
+
+    .cp-header {
+        padding: 25px 10px;
+    }
+}

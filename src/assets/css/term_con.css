@@ -1,0 +1,121 @@
+/* Base styles for the Terms of Service page */
+.terms-page-container {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding-top: 80px;
+    /* Adjust based on your navbar height */
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+.terms-content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.terms-title {
+    font-size: 3em;
+    color: #2a4365;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    padding: 50px 0;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.terms-sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.terms-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.terms-heading {
+    font-size: 1.8em;
+    color: #3a86ff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #e0f7fa;
+    padding-bottom: 10px;
+}
+
+.terms-paragraph {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.terms-list {
+    list-style-type: disc;
+    margin-left: 25px;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.terms-list li {
+    font-size: 1.05em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.terms-list li strong {
+    color: #2a4365;
+}
+
+.terms-contact-link {
+    color: #3a86ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.terms-contact-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .terms-title {
+        font-size: 2.2em;
+        padding: 30px 15px;
+        margin-bottom: 30px;
+    }
+
+    .terms-content-wrapper {
+        padding: 15px;
+    }
+
+    .terms-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .terms-heading {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .terms-paragraph,
+    .terms-list li {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .terms-title {
+        font-size: 1.8em;
+        padding: 25px 10px;
+    }
+}

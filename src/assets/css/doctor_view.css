@@ -1,0 +1,240 @@
+.all-doctors {
+    padding: 4rem 2rem;
+    background-color: #f9fefc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 50px;
+}
+
+.all-doctors h1 {
+    text-align: center;
+    color: #00796b;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.doctor-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.doctor-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+}
+
+.doctor-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #e0f2f1;
+}
+
+.top-info {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.available {
+    color: green;
+    background-color: #dbfce7;
+    border-radius: 1.5rem;
+    padding: .02rem 2rem;
+    font-weight: normal;
+    font-family: sans-serif;text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.experience {
+    color: #37474f;
+    font-weight: normal;
+}
+
+.name {
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #004d40;
+    font-weight: normal;
+    margin-bottom: 0.3rem;
+}
+
+.degrees {
+    color: #00796b;
+    font-size: .98rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    font-family: sans-serif;
+}
+
+.dash-line {
+    border: none;
+    border-top: 1px dashed silver;
+    margin: .8rem 0;
+}
+
+.reg {
+    font-size: 0.97rem;
+    color: #555;
+    font-family: sans-serif;
+    margin-bottom: 1rem;
+}
+
+.details-btn {
+    background-color: #6057ff;
+    border: 1px solid #6057ff;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.5rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.details-btn:hover {
+    background-color: #ffdfdf;
+    color: black;
+    border: 1px solid #6057ff;
+}
+
+.day-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    perspective: 1000px;
+}
+
+.toggle-btn {
+    padding: 1.2rem 3.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: transparent;
+    color: #9d00ff;
+    border: 3px solid #9d00ff;
+    border-radius: 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 0 0 rgba(157, 0, 255, 0);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2rem;
+}
+
+.toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #9d00ff;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
+}
+
+.toggle-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ff00aa;
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+}
+
+.toggle-btn:hover {
+    color: white;
+    transform: translateY(-5px) rotateX(10deg);
+    box-shadow: 0 15px 30px rgba(157, 0, 255, 0.3);
+}
+
+.toggle-btn:hover::before {
+    transform: rotateX(0deg);
+}
+
+.toggle-btn:hover::after {
+    transform: scaleX(1);
+}
+
+.toggle-btn:active {
+    transform: translateY(-2px);
+    transition-duration: 0.2s;
+}
+
+/* Glitch effect on hover */
+.toggle-btn:hover span {
+    display: inline-block;
+    animation: glitch 0.4s linear infinite;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0)
+    }
+
+    20% {
+        transform: translate(-3px, 3px)
+    }
+
+    40% {
+        transform: translate(-3px, -3px)
+    }
+
+    60% {
+        transform: translate(3px, 3px)
+    }
+
+    80% {
+        transform: translate(3px, -3px)
+    }
+
+    100% {
+        transform: translate(0)
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .all-doctors {
+        padding: 2rem 1rem;
+    }
+
+    .doctor-card {
+        padding: 1.2rem;
+    }
+
+    .all-doctors h1 {
+        font-size: 2rem;
+    }
+}
