@@ -11,6 +11,7 @@ import DoctorDetails from './doctor/doctor_details';
 import Service from './pages/service';
 import Blog from './pages/blog';
 import NotFoundPage from './pages/notfound';
+import ServiceCount from './pages/servicecount';
 
 import Booking from './pages/booking';
 import Contact from './pages/contact';
@@ -35,6 +36,7 @@ root.render(
             <Home />
             <DoctorList />
             <Service />
+            <ServiceCount />
           </>
         } />
         
